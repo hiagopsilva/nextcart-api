@@ -6,6 +6,6 @@ const routes = Router()
 
 routes.post('/create', ProtocolController.create)
 routes.post('/update', ProtocolController.update)
-routes.post('/list', ProtocolController.list)
+routes.get('/list', ProtocolController.list)
 
 export default routes
