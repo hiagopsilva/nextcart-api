@@ -37,6 +37,16 @@ class ProtocolController {
       console.log('Error')
     }
   }
+
+  update = async (request: Request, response: Response) => {
+    try {
+      const dataProtocol = await Protocol.findByIdAndUpdate(request.params.id, request.body, { new: true })
+
+      return response.json(dataProtocol)
+    } catch (error) {
+      console.log('Error')
+    }
+  }
 }
 
 export default new ProtocolController()
