@@ -7,17 +7,7 @@ const Protocol = mongoose.model('Protocol')
 
 class ProtocolController {
   create = async (request: Request, response: Response) => {
-    const { name, where, price, method, date, owner, person } = request.body
-
-    const protocol = await Protocol.create({
-      name: name,
-      where: where,
-      price: price,
-      method: method,
-      date: date,
-      owner: owner,
-      person: person
-    })
+    const protocol = await Protocol.create(request.body)
 
     return response.json(protocol)
   }
