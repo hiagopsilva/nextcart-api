@@ -16,7 +16,7 @@ const ProtocolSchema = new mongoose.Schema({
   },
   imagem: {
     type: String,
-    require: true
+    require: false
   },
   entrada: {
     type: Number,
