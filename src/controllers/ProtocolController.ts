@@ -14,13 +14,7 @@ class ProtocolController {
 
   list = async (request: Request, response: Response) => {
     try {
-      const { person } = request.body
-
-      if (isEmpty(person)) throw response.json('Is missing person').status(404)
-
-      const dataProtocol = await Protocol.find({ person })
-
-      if (isEmpty(dataProtocol)) throw response.json('Not found person').status(404)
+      const dataProtocol = await Protocol.find()
 
       return response.json(dataProtocol)
     } catch (error) {
