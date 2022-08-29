@@ -18,7 +18,20 @@ class ProtocolController {
 
       return response.json(dataProtocol)
     } catch (error) {
-      console.log('Error')
+      console.log('Error', error)
+      return response.status(404)
+    }
+  }
+
+  get = async (request: Request, response: Response) => {
+    try {
+      const dataProtocol = await Protocol.findById({ _id: request.params.id })
+
+      return response.json(dataProtocol)
+    } catch (error) {
+      console.log('Error', error)
+
+      return response.status(404)
     }
   }
 
@@ -29,6 +42,7 @@ class ProtocolController {
       return response.json(dataProtocol)
     } catch (error) {
       console.log('Error')
+      return response.status(404)
     }
   }
 }
